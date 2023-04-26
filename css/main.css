@@ -21,10 +21,17 @@ body {
   justify-content: center;
   margin-bottom: 0;
 }
-.cardContainer { 
+#cardContainer { 
   background-color: chocolate;
   height: 50vh;
   margin-top: 0;
+  padding-top: 15px;
+  justify-content: space-around;
+}
+.card{
+  background-color: aliceblue;
+  height: 35vh;
+  width:25vh;
 }
 .buttonClass{
   background-color: black;
