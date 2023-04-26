@@ -24,7 +24,7 @@ Bonus use stories
 -   Winning Multiplier show for each hand
 
 ## Wireframe the UI
-<https://miro.com/app/board/uXjVMPjupek=/?share_link_id=83205964976>
+<img src="https://i.imgur.com/H8OpHl2.jpg">
 ## Pseudocode
 1)  Define required constants
     1)  Originial Deck: length = 52 [][(Suits - shapes for each card), (Values - 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K, A)]
