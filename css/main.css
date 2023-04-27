@@ -16,32 +16,71 @@ body {
   text-align: center; 
 }
 .top{
-  background-color: chocolate;
+
   text-align: center;
   justify-content: center;
   margin-bottom: 0;
 }
 #cardContainer { 
-  background-color: chocolate;
-  height: 50vh;
-  margin-top: 0;
+
+  height: 40vh;
+  margin: 0 45px;
   padding-top: 15px;
   justify-content: space-around;
 }
+
+.buttonClass{
+  height: 12vh;
+  margin: 0 45px;
+  position: relative;
+  justify-content: space-around;
+}
+.betShape{
+  top: 40%;
+  margin: auto;
+  height:50%;
+  width:80%;
+}
+.buttonClass div{
+  width:15%;
+  font-size: larger;
+}
+
+#betAmnt{
+  top:35%;
+}
+.messageClass{
+  height: 15vh;
+  margin: 0 45px;
+
+}
+#winningsWindow{
+  width:65%;
+  height: 80%;
+  margin:auto;  
+}
+#bank{
+  width:20%;
+  height:80%;
+  margin:auto;
+}
+.divText{
+  position: relative;
+  top:25%;
+  font-size: larger;
+}
+
 .card{
   background-color: aliceblue;
   height: 35vh;
   width:25vh;
 }
-.buttonClass{
-  background-color: black;
-  height: 15vh;
 
-}
 .winningClass{
   background-color: black;
   height: 10vh;
 }
+
 
 /* .card-container {
   display: flex;
