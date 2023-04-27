@@ -77,8 +77,10 @@ function dealCards(){
         addCardEvt();
         setHand();
         renderHand();
-    //   getWinningHand();
         createArr();
+        winningHand = getWinningHand(valArr);
+        console.log(valArr);
+        console.log(winningHand);
         tempDeck = [...originalDeck];
     }
     secondDeal *= -1;
@@ -113,33 +115,31 @@ function getNewCard(){
         //concern here is the [0] index review if their is a bug
         return tempDeck.splice(rndIdx, 1);
 }
-
-// getWinningHand(){
-//     if(containsRoyalFlush()){}
-//     else if(containsStraightFlush()){}
-//     else if(containsFourAces()){}
-//     else if(containsRoyalFourOfaKind()){}
-//     else if(containsNumFourOfaKind()){}
-//     else if(containsFullHouse()){}
-//     else if(containsFlush()){}
-//     else if(containsStraight()){}
-//     else if(containsThreeOfaKind()){}
-//     else if(containsTwoPair()){}
-//     else if(containsRoyalPair()){}
-//     else{
-//         return winningHand;
-//     }
-// }
+function passByValue(x){
+    let val = x;
+    return val;
+}
 function createArr(){
     for (i = 0; i < handSize; i++){
         valArr.push(passByValue(hand[i]['card'][0]['value']));
     }
 }
-
-function passByValue(x){
-    let val = x;
-    return val;
+function getWinningHand(arr){
+    if(containsRoyalFlush(arr)){ winningHand = 'RoyalFlush';}
+    else if(containsStraightFlush(arr)){ winningHand = 'StraightFlush';}
+    else if(containsFourAces(arr)){ winningHand = 'FourAces';}
+    else if(containsRoyalFourOfaKind(arr)){winningHand = 'RoyalFourOfaKind';}
+    else if(containsNumFourOfaKind(arr)){ winningHand = 'NumFourOfaKind';}
+    else if(containsFullHouse(arr)){ winningHand = 'FullHouse';}
+    else if(containsFlush()){ winningHand = 'Flush';}
+    else if(containsStraight(arr)){ winningHand = 'Straight';}
+    else if(containsThreeOfaKind(arr)){ winningHand = 'Trips';}
+    else if(containsTwoPair(arr)){ winningHand = 'TwoPair';}
+    else if(containsRoyalPair(arr)){ winningHand = 'RoyalPair';}
+    else { winningHand = '';}
+    return winningHand;
 }
+
 function containsRoyalFlush(arr){
     let suit = hand[0]['card'][0]['face'].charAt(0);
     let valSum;
@@ -194,16 +194,19 @@ function containsStraight(arr){
             highStraight = false;
         }
     }
-    for(let i = arr.length -2; i > 0; i--){
-        tempVal = arr[i + 1];
-        if(tempVal != arr[i] -1){
-          lowStraight = false;
+    if(arr.includes(14)){
+        for(let i = arr.length -2; i > 0; i--){
+            tempVal = arr[i + 1];
+            if(tempVal != arr[i] -1){
+            lowStraight = false;
+            }
         }
+        if(lowStraight || highStraight){
+            return true;
+          }
+       else {return false;}
     }
-      if(lowStraight || highStraight){
-        return true;
-      }
-   else {return false;}
+    return highStraight;
 }
 function containsFourOfaKind(arr){
     let fourNum = 0;
@@ -256,4 +259,68 @@ function containsNumFourOfaKind(arr){
     else{
         return false;
     }
+}
+function containsFullHouse(arr){
+    if(containsThreeOfaKind(arr) && containsTwoPair(arr)){
+        
+        return true;
+    }
+    return false;
+}
+function containsThreeOfaKind(arr){
+    let hasPair = false;
+    let currentPair;
+    let tempVal;
+    for (let i = 0; i < handSize ; i++){
+        tempVal = arr[i];
+        let j = i + 1;
+        for(;j<handSize; j++){
+            if(arr[j] === tempVal && !hasPair){
+                hasPair = true;
+                currentPair = arr[j];
+            }
+            else if(arr[j] === currentPair && hasPair){
+                return true;
+            }
+            else if(arr[j] === tempVal){
+                currentPair = arr[j];
+            }
+        }
+        currentPair = 0;
+    }
+    return false;
+}
+function containsTwoPair(arr){
+    let hasPair = false;
+    let currentPair;
+    let tempVal;
+    let matchArr = [];
+    for( let i = 0 ; i < handSize; i++){
+        tempVal = arr[i];
+        let j = i + 1;
+        for(; j< handSize; j ++){
+            if(arr[j] === tempVal && arr[j] !== currentPair){
+                if(!matchArr.includes(arr[j])){ matchArr.push(arr[j]);}
+                if(!hasPair){
+                    hasPair = true;
+                    currentPair = arr[j];
+                }
+                else if(hasPair && matchArr.length === 2){return true;}
+            }
+        }
+        console.log(`this is the current pair after first iteration${currentPair}`);
+        currentPair = null;
+    }
+    return false;
+}
+function containsRoyalPair(arr){
+    let tempVal;
+    for(let i = 0; i < handSize; i++){
+        tempVal = arr[i];
+        let j = i + 1;
+        for(; j < handSize; j++){
+            if(arr[j] === tempVal && arr[j] > 10){return true;}
+        }
+    }
+    return false;
 }
