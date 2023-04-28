@@ -8,100 +8,97 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
-  background-color: lightgray;
+  background-image: url('Vietnam.jpg');
+  background-size: cover;
+  opacity: 1;
+
 }
-.struct{
+.struct {
   display: flex;
   margin: 15px 45px;
-  text-align: center; 
+  text-align: center;
+  background: rgba(173, 216, 230, 0.7);
 }
-.top{
-
+.top {
   text-align: center;
   justify-content: center;
   margin-bottom: 0;
+  background: rgba(173, 216, 230, 0.7);
+  font-size: 30px;
 }
-#cardContainer { 
-
+#cardContainer {
   height: 40vh;
   margin: 0 45px;
   padding-top: 15px;
   justify-content: space-around;
+  background: rgba(173, 216, 230, 0.7);
 }
 
-.buttonClass{
+.buttonClass {
   height: 12vh;
   margin: 0 45px;
   position: relative;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
-.betShape{
+#betShape {
   top: 40%;
   margin: auto;
-  height:50%;
-  width:80%;
+  height: 50%;
+  width: 80%;
+  background-image: url('smallCloud.png');
+  background-size: cover;
 }
-.buttonClass div{
-  width:15%;
+.buttonClass div {
+  width: 15%;
   font-size: larger;
 }
 
-#betAmnt{
-  top:35%;
+#betAmnt {
+  top: 35%;
 }
-.messageClass{
+.messageClass {
   height: 15vh;
   margin: 0 45px;
-
 }
-#winningsWindow{
-  width:65%;
+#winningsWindow {
+  width: 65%;
   height: 80%;
-  margin:auto;  
+  margin: auto;
+  background-color:blanchedalmond;
+  opacity: .9;
+  border-radius: 5px;
 }
-#bank{
-  width:20%;
-  height:80%;
-  margin:auto;
+#bank {
+  width: 10%;
+  height: 75%;
+  margin: auto;
+
 }
-.divText{
+.divText {
   position: relative;
-  top:25%;
-  font-size: larger;
+  top: 25%;
+  font-size: 2rem;
 }
 
-.card{
-  background-color: aliceblue;
+.card {
+  border-radius: 5px;
   height: 35vh;
-  width:25vh;
+  width: 25vh;
+  border-radius: 5px;
 }
 
-.winningClass{
-  background-color: black;
+.winningClass {
+  margin-top: 0;
   height: 10vh;
 }
-
-
-/* .card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  border: 4px dotted grey;
-  padding: 10px;
-}
-
 button {
-  display: block;
-  margin: 10px auto;
-  padding: 10px;
-  font-size: 16px;
-  color: grey;
-  border: 1px solid grey;
-  border-radius: 4px;
-  outline: none;
+  position: relative;
+  background-image: url(
+'smallCloud.png');
+  background-size: cover;
+  width: 20rem;
+  height: 200px;
+  font-size: 2rem;
+  background-color: rgb(254, 254, 254, 0);
+  border-radius: 50%;
 }
-
-button:hover {
-  background-color: grey;
-  color: white;
-} */
