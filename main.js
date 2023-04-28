@@ -164,7 +164,6 @@ function renderHand() {
 }
 function getNewCard() {
     const rndIdx = Math.floor(Math.random() * tempDeck.length);
-    //concern here is the [0] index review if their is a bug
     return tempDeck.splice(rndIdx, 1);
 }
 function passByValue(x) {
