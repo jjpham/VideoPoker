@@ -1,104 +1,110 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  height: 100vh;
-  font-family: sans-serif;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  background-image: url('Vietnam.jpg');
-  background-size: cover;
-  opacity: 1;
-
+    height: 100vh;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-image: url("Vietnam.jpg");
+    background-size: cover;
+    opacity: 1;
 }
 .struct {
-  display: flex;
-  margin: 15px 45px;
-  text-align: center;
-  background: rgba(173, 216, 230, 0.7);
+    display: flex;
+    margin: 15px 45px;
+    text-align: center;
+    background: rgba(173, 216, 230, 0.7);
 }
 .top {
-  text-align: center;
-  justify-content: center;
-  margin-bottom: 0;
-  background: rgba(173, 216, 230, 0.7);
-  font-size: 30px;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 0;
+    background: rgba(173, 216, 230, 0.7);
+    font-size: 25px;
 }
 #cardContainer {
-  height: 40vh;
-  margin: 0 45px;
-  padding-top: 15px;
-  justify-content: space-around;
-  background: rgba(173, 216, 230, 0.7);
+    height: 40vh;
+    margin: 0 45px;
+    padding-top: 15px;
+    justify-content: space-around;
+    background: rgba(173, 216, 230, 0.7);
 }
 
 .buttonClass {
-  height: 12vh;
-  margin: 0 45px;
-  position: relative;
-  justify-content: space-evenly;
+    height: 30vh;
+    margin: 0 45px;
+    position: relative;
+    justify-content: space-evenly;
 }
 #betShape {
-  top: 40%;
-  margin: auto;
-  height: 50%;
-  width: 80%;
-  background-image: url('smallCloud.png');
-  background-size: cover;
+    top: 40%;
+    margin: auto;
+    height: 50%;
+    width: 80%;
+    background-image: url("smallCloud.png");
+    background-size: cover;
 }
-.buttonClass div {
-  width: 15%;
-  font-size: larger;
+
+.divText {
+    position: relative;
+    top: 25%;
+    text-align: center;
+    font-size: 2rem;
 }
 
 #betAmnt {
-  top: 35%;
+    margin-top: 3vh;
+    top: 35%;
+    left: 20%;
+    width: 20%;
+    height: 10vh;
+    background-color: blanchedalmond;
+    font-size: 2rem;
+    text-align: center;
+    opacity: 0.9;
+    border-radius: 5px;
 }
 .messageClass {
-  height: 15vh;
-  margin: 0 45px;
+    height: 15vh;
+    margin: 0 45px;
 }
 #winningsWindow {
-  width: 65%;
-  height: 80%;
-  margin: auto;
-  background-color:blanchedalmond;
-  opacity: .9;
-  border-radius: 5px;
+    width: 65%;
+    height: 80%;
+    margin: auto;
+    background-color: blanchedalmond;
+    opacity: 0.9;
+    border-radius: 5px;
+    top: 25%;
+    font-size: 2rem;
 }
 #bank {
-  width: 10%;
-  height: 75%;
-  margin: auto;
-
-}
-.divText {
-  position: relative;
-  top: 25%;
-  font-size: 2rem;
+    width: 20%;
+    height: 80%;
+    margin: auto;
+    background-color: blanchedalmond;
+    opacity: 0.9;
+    border-radius: 5px;
+    top: 25%;
+    font-size: 2rem;
 }
 
 .card {
-  border-radius: 5px;
-  height: 35vh;
-  width: 25vh;
-  border-radius: 5px;
-}
-
-.winningClass {
-  margin-top: 0;
-  height: 10vh;
+    border-radius: 5px;
+    height: 35vh;
+    width: 25vh;
+    border-radius: 5px;
 }
 button {
-  position: relative;
-  background-image: url(
-'smallCloud.png');
-  background-size: cover;
-  width: 20rem;
-  height: 200px;
-  font-size: 2rem;
-  background-color: rgb(254, 254, 254, 0);
-  border-radius: 50%;
+    position: relative;
+    background-image: url("smallCloud.png");
+    background-size: cover;
+    width: 20rem;
+    height: 200px;
+    font-size: 2rem;
+    background-color: rgb(254, 254, 254, 0);
+    border-radius: 50%;
 }

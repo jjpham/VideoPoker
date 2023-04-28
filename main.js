@@ -62,7 +62,10 @@ let secondDeal;
 let winningHand;
 let deal;
 let mult;
-let betIdx;
+let betIdx = 0;
+let winnings;
+let bank;
+let bet = 0.25 * betArr[betIdx];
 
 hand = document.getElementsByClassName("card");
 document.getElementById("deal").addEventListener("click", dealCards);
@@ -73,6 +76,8 @@ init();
 function init() {
     secondDeal = -1;
     winningHand = null;
+    bank = 500;
+    betIdx = 0;
 }
 function dealCards() {
     if (secondDeal === -1) {
@@ -82,37 +87,37 @@ function dealCards() {
         setHand();
         renderHand();
         renderMessage();
+        bank -= bet;
+        document.getElementById("bank").innerText = `$${bank}`;
     } else if (secondDeal === 1) {
         addCardEvt();
         setHand();
         renderHand();
         createArr();
         winningHand = getWinningHand(valArr);
+        winnings = bet * mult;
+        bank += winnings;
         renderMessage(winningHand);
+        document.getElementById("bank").innerText = `$${bank}`;
         winningHand = null;
         tempDeck = [...originalDeck];
     }
     secondDeal *= -1;
 }
 function renderMessage() {
-    if(winningHand === null && secondDeal === -1){
-        document.getElementById("winningsWindow").innerText = `Click to hold cards!`;
+    if (winningHand === null && secondDeal === -1) {
+        document.getElementById(
+            "winningsWindow"
+        ).innerText = `You've bet $${bet}! Click to hold cards!`;
+    } else if (winningHand === null && secondDeal === 1) {
+        document.getElementById(
+            "winningsWindow"
+        ).innerText = `Better Luck Next Time!!`;
+    } else if (winningHand !== null && secondDeal === 1) {
+        document.getElementById(
+            "winningsWindow"
+        ).innerText = `You've got a ${winningHand} (${mult}x)! You've won $${winnings}!`;
     }
-    else if(winningHand === null && secondDeal === 1){
-        document.getElementById("winningsWindow").innerText = `Better Luck Next Time!!`;
-    }
-    else if(winningHand !== null && secondDeal === 1){
-        document.getElementById("winningsWindow").innerText = `You've got a ${winningHand}!`;
-    }
-    // if (winningHand !== null) {
-    //     if (secondDeal === -1) {
-    //         document.getElementById("winningsWindow").innerText = `Click to hold cards!`;
-    //     } else if (secondDeal === 1) {
-    //         document.getElementById("winningsWindow").innerText = `You've got a ${winningHand}!`;
-    //     }
-    // } else {
-    //     document.getElementById("winningsWindow").innerText = `Better Luck Next Time!!`;
-    // }
 }
 function addCardEvt() {
     for (i = 0; i < handSize; i++) {
@@ -175,7 +180,12 @@ function createArr() {
 function getWinningHand(arr) {
     if (containsRoyalFlush(arr)) {
         winningHand = "Royal Flush";
-        mult = betMultiplier.RoyalFlush;
+        if(betIdx === betArr.length-1){
+            winningHand = "Royal Flush with the Max Bet"
+            mult = 750;
+        }
+        else{
+        mult = betMultiplier.RoyalFlush;}
     } else if (containsStraightFlush(arr)) {
         winningHand = "Straight Flush";
         mult = betMultiplier.StraightFlush;
@@ -208,6 +218,7 @@ function getWinningHand(arr) {
         mult = betMultiplier.RoyalPair;
     } else {
         winningHand = null;
+        mult = 0;
     }
     return winningHand;
 }
@@ -395,11 +406,15 @@ function containsRoyalPair(arr) {
 }
 function setMaxBet() {
     betIdx = betArr.length - 1;
-    console.log(betIdx);
+    bet = 0.25 * betArr[betIdx];
+    document.getElementById("betAmnt").innerText = `$${bet}`;
 }
 function incBetIdx() {
     if (betIdx === betArr.length - 1) {
         betIdx = 0;
-    } else betIdx += 1;
-    console.log(betIdx);
+    } else {
+        betIdx += 1;
+    }
+    bet = 0.25 * betArr[betIdx];
+    document.getElementById("betAmnt").innerText = `$${bet}`;
 }
