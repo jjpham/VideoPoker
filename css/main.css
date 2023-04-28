@@ -23,6 +23,7 @@ body {
     justify-content: center;
     margin-bottom: 0;
     background: rgba(173, 216, 230, 0.7);
+    font-family: 'Rowdies', cursive;
     font-size: 25px;
 }
 #cardContainer {
@@ -38,6 +39,7 @@ body {
     margin: 0 45px;
     position: relative;
     justify-content: space-evenly;
+    font-family: 'Josefin Sans', sans-serif;
 }
 #betShape {
     top: 40%;
@@ -70,6 +72,7 @@ body {
 .messageClass {
     height: 15vh;
     margin: 0 45px;
+    font-family: 'Josefin Sans', sans-serif;
 }
 #winningsWindow {
     width: 65%;
@@ -107,4 +110,5 @@ button {
     font-size: 2rem;
     background-color: rgb(254, 254, 254, 0);
     border-radius: 50%;
+    font-family: 'Josefin Sans', sans-serif;
 }
